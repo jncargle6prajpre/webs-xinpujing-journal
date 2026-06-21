@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳门新葡京 · 信息指引页</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #fafafa;
+            color: #1e1e2a;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-wrap {
+            max-width: 768px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem 3.5rem;
+        }
+
+        /* 顶部导航 — 极简化 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0 1.2rem;
+            border-bottom: 1px solid #e9e9ef;
+            margin-bottom: 2.8rem;
+        }
+        .nav-logo {
+            font-weight: 500;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            color: #18181b;
+            text-decoration: none;
+        }
+        .nav-logo span { color: #aa7a3c; }
+        .nav-links {
+            display: flex;
+            gap: 1.4rem;
+            font-size: 0.9rem;
+            color: #4a4a5a;
+        }
+        .nav-links a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #aa7a3c; }
+
+        /* 标题层级 */
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: #18181b;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #5f5f72;
+            margin-bottom: 2.2rem;
+            border-left: 3px solid #d4b68a;
+            padding-left: 1rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 550;
+            margin-top: 2.8rem;
+            margin-bottom: 0.8rem;
+            color: #1a1a2e;
+            border-bottom: 1px solid #e4e4ec;
+            padding-bottom: 0.3rem;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 540;
+            margin: 1.6rem 0 0.4rem;
+            color: #2e2e42;
+        }
+
+        p {
+            margin-bottom: 1.1rem;
+            color: #2b2b3a;
+        }
+
+        /* 卡片场景模块 - 三个场景 */
+        .scene-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin: 1.8rem 0 1.2rem;
+        }
+        .scene-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 1.3rem 1.5rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.03);
+            transition: box-shadow 0.2s;
+            border: 1px solid #f0f0f5;
+        }
+        .scene-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+        .scene-card .card-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            background: #efe6da;
+            color: #6f4e2e;
+            padding: 0.1rem 0.7rem;
+            border-radius: 20px;
+            margin-bottom: 0.4rem;
+        }
+        .scene-card p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        .scene-card strong {
+            color: #1e1e2a;
+        }
+
+        /* 常见说明/FAQ */
+        .faq-block {
+            margin: 2rem 0 1.8rem;
+        }
+        .faq-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px dashed #dddee6;
+        }
+        .faq-item:last-of-type { border-bottom: none; }
+        .faq-q {
+            font-weight: 520;
+            color: #222;
+        }
+        .faq-a {
+            font-size: 0.95rem;
+            color: #3f3f52;
+            margin-top: 0.15rem;
+        }
+
+        /* 背景提示块 */
+        .note-box {
+            background: #f6f4f0;
+            border-left: 4px solid #c6a77a;
+            padding: 1rem 1.3rem;
+            border-radius: 6px;
+            margin: 2rem 0 1.8rem;
+            font-size: 0.95rem;
+            color: #2f2f3e;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e3e3eb;
+            font-size: 0.85rem;
+            color: #6a6a7a;
+            text-align: center;
+        }
+        .footer-note a {
+            color: #6a4f3a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 520px) {
+            .page-wrap { padding: 1.5rem 1rem 3rem; }
+            h1 { font-size: 1.6rem; }
+            .top-nav { flex-wrap: wrap; gap: 0.4rem; }
+            .nav-links { font-size: 0.8rem; gap: 0.8rem; }
+            .scene-card { padding: 1rem 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <a href="#" class="nav-logo">◈ <span>葡京</span>指南</a>
+        <div class="nav-links">
+            <a href="#scene">查询场景</a>
+            <a href="#faq">常见说明</a>
+            <a href="#note">延伸阅读</a>
+        </div>
+    </nav>
+
+    <!-- 核心介绍 -->
+    <h1>澳门新葡京 · 信息页</h1>
+    <div class="subhead">基于日常查询、对照与延伸阅读整理</div>
+
+    <p>
+        <a href="https://webs-xinpujing.com" style="color:#aa7a3c; font-weight:500; text-decoration:none; border-bottom:1px solid #d4b68a;">澳门新葡京</a> 
+        是澳门一处综合性休闲场所，涵盖酒店住宿、餐饮、娱乐及会展空间。以下从三个常见使用场景出发，
+        整理实用信息，供对照与快速查阅。
+    </p>
+
+    <!-- 三个场景模块 -->
+    <h2 id="scene">三个常见查询场景</h2>
+    <div class="scene-grid">
+
+        <div class="scene-card">
+            <span class="card-label">场景一 · 出行前对照</span>
+            <p>
+                <strong>房型与设施参考</strong><br>
+                出发前整理酒店客房类型、餐饮特色及公共设施清单。部分房型配备景观阳台与独立会客区，
+                可通过预订页面比对细节。周边交通、停车指引亦可提前查阅，减少现场沟通成本。
+            </p>
+        </div>
+
+        <div class="scene-card">
+            <span class="card-label">场景二 · 现场服务快速索引</span>
+            <p>
+                <strong>餐厅、商店与活动时间</strong><br>
+                到达后常需要确认餐厅营业时段、娱乐项目开放安排或商店位置。建议将楼层指引、
+                联系方式截图保存，方便快速查找。部分服务需提前预约，留意现场公告或信息板。
+            </p>
+        </div>
+
+        <div class="scene-card">
+            <span class="card-label">场景三 · 归纳与延伸阅读</span>
+            <p>
+                <strong>历史背景与周边探索</strong><br>
+                不少访客会对葡京品牌的发展历程、建筑风格或澳门本岛旅游路线产生兴趣。
+                可配合官方说明及旅行手册，了解周边景点、文化场馆及交通网络，规划更完整的行程。
+            </p>
+        </div>
+    </div>
+
+    <!-- 常见说明摘要 (FAQ) -->
+    <h2 id="faq">常见说明摘要</h2>
+    <div class="faq-block">
+        <div class="faq-item">
+            <div class="faq-q">▪ 是否需要提前预订房间或座位？</div>
+            <div class="faq-a">建议提前通过官方渠道或合作平台预订住房、热门餐厅及表演，旺季尤为必要。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">▪ 如何查询实时营业时间？</div>
+            <div class="faq-a">各设施营业时间可能随季节调整，以现场公告或 
+                <a href="https://webs-xinpujing.com" style="color:#6a4f3a;">澳门新葡京</a> 
+                页面更新为准，出行前可再次核对。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">▪ 附近有哪些公共交通工具？</div>
+            <div class="faq-a">葡京周边设有巴士站及的士停靠点，亦可使用酒店穿梭巴士（具体路线请参考服务台说明）。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">▪ 是否有行李寄存或礼宾服务？</div>
+            <div class="faq-a">酒店大堂通常提供行李寄存与礼宾咨询，具体服务范围请向现场工作人员确认。</div>
+        </div>
+    </div>
+
+    <!-- 延伸阅读 / 背景提示 -->
+    <div class="note-box" id="note">
+        <strong>延伸阅读建议</strong><br>
+        若希望了解更多澳门历史街区、文化遗产或娱乐表演信息，可查阅旅游指南或相关专题网站。
+        本页仅做基本信息梳理，不构成任何形式的活动推荐或承诺，请根据个人需求判断。
+    </div>
+
+    <p style="font-size:0.95rem;">
+        页面内容基于公开可查信息整理，日常查询时建议结合 
+        <a href="https://webs-xinpujing.com" style="color:#6a4f3a; font-weight:500;">澳门新葡京</a> 
+        官方发布的最新动态，以获得准确资讯。
+    </p>
+
+    <div class="footer-note">
+        信息整理 · 仅供对照参考 · 不构成服务承诺<br>
+        页面更新于 2025 · 请以现场实际为准
+    </div>
+</div>
+</body>
+</html>
