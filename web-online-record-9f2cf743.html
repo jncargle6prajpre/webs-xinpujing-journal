@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐鱼 · 再次遇见</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f0f7fa;
+      line-height: 1.7;
+      color: #1b3b4f;
+      padding: 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 12px 30px rgba(0, 40, 50, 0.06);
+      padding: 2.5rem 1.8rem;
+    }
+
+    /* 主视觉网格 */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-text h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #145a6b;
+      line-height: 1.2;
+    }
+
+    .hero-text h1 span {
+      background: linear-gradient(145deg, #1a8b9c, #0f6c7a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-text .sub {
+      font-size: 1.2rem;
+      color: #2d6e7e;
+      margin-top: 0.8rem;
+      border-left: 4px solid #30b8c7;
+      padding-left: 1.2rem;
+      font-weight: 350;
+    }
+
+    .hero-visual {
+      background: #e4f2f5;
+      border-radius: 2rem;
+      padding: 1.8rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      box-shadow: inset 0 0 0 1px rgba(60, 160, 170, 0.15);
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      background: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 1.2rem;
+      box-shadow: 0 2px 6px rgba(30, 120, 130, 0.05);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item .number {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #0f6c7a;
+    }
+
+    .stat-item .label {
+      font-size: 0.8rem;
+      color: #47808e;
+      letter-spacing: 0.02em;
+    }
+
+    .tagline-card {
+      background: white;
+      border-radius: 1.4rem;
+      padding: 1rem 1.2rem;
+      font-size: 0.95rem;
+      color: #1d4e5d;
+      border: 1px solid #c4e2e9;
+    }
+
+    .tagline-card strong {
+      color: #0f7b8c;
+    }
+
+    /* 卡片网格 */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 450;
+      margin: 2.5rem 0 1.2rem 0;
+      color: #145a6b;
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid #d5e9ef;
+      padding-bottom: 0.6rem;
+      display: inline-block;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #f6fbfc;
+      border-radius: 1.6rem;
+      padding: 1.6rem 1.2rem;
+      border: 1px solid #d2e7ed;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 14px rgba(20, 90, 100, 0.08);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 450;
+      color: #156573;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #2c5e6b;
+    }
+
+    .card-icon {
+      display: inline-block;
+      background: #d2eef4;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      line-height: 2.2rem;
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      color: #0b6574;
+    }
+
+    .audience-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      margin: 0.8rem 0 0.2rem 0;
+    }
+
+    .audience-tag {
+      background: #eef7fa;
+      padding: 0.3rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      color: #116473;
+      border: 1px solid #b8d9e2;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #eaf4f8;
+      border-radius: 1.8rem;
+      padding: 1.8rem 2rem;
+      margin: 2.5rem 0 1.8rem 0;
+      border-left: 6px solid #2ba9bb;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .link-paragraph a {
+      color: #0f6c7a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid #7fc9d6;
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+
+    .link-paragraph a:hover {
+      border-bottom-color: #0f6c7a;
+    }
+
+    .faq-mini {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 2rem;
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed #c9dfe6;
+    }
+
+    .faq-item .q {
+      font-weight: 480;
+      color: #125c6b;
+      font-size: 0.95rem;
+    }
+
+    .faq-item .a {
+      color: #2b6777;
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #618b98;
+      border-top: 1px solid #d0e3e9;
+      padding-top: 1.8rem;
+    }
+
+    /* 响应式移动端 */
+    @media (max-width: 700px) {
+      body { padding: 0.8rem; }
+      .container { padding: 1.5rem 1rem; }
+      .hero-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+      .hero-text h1 { font-size: 1.9rem; }
+      .hero-text .sub { font-size: 1rem; }
+      .faq-mini { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .stat-row { flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+      .link-paragraph { padding: 1.2rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- 主视觉 -->
+  <div class="hero-grid">
+    <div class="hero-text">
+      <h1>再访·<span>乐鱼</span></h1>
+      <div class="sub">收藏一处安静的角落，慢慢熟悉它的节奏</div>
+      <p style="margin-top: 1.2rem; color: #256a7a; font-size: 1rem;">
+        有些地方值得第二次点开，第三次停留。<br>
+        不必刻意记住，只要记得回来就好。
+      </p>
+    </div>
+
+    <div class="hero-visual">
+      <div class="stat-row">
+        <div class="stat-item"><span class="number">7</span><div class="label">日常入口</div></div>
+        <div class="stat-item"><span class="number">3</span><div class="label">常用板块</div></div>
+        <div class="stat-item"><span class="number">∞</span><div class="label">节奏自定</div></div>
+      </div>
+      <div class="tagline-card">
+        <strong>✦ 收藏即重逢</strong> —— 把页面加到书签，下次见面就像推开一扇熟悉的门。
+      </div>
+      <div class="tagline-card">
+        <strong>✦ 持续关注</strong> —— 不定期的小变化，等待一双留意细节的眼睛。
+      </div>
+    </div>
+  </div>
+
+  <!-- 用途卡片 -->
+  <h2 class="section-title">它可以成为 · 用途</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">🌿</div>
+      <h3>日常浏览</h3>
+      <p>茶余饭后、通勤小憩，打开看看有没有新的内容或功能，轻量无负担。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">📌</div>
+      <h3>信息停留</h3>
+      <p>不追求刷完，只在意此刻看到的东西是否合意。适合慢阅读与随意探索。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🔁</div>
+      <h3>反复回访</h3>
+      <p>有些页面只去一次太可惜。隔几日再访，熟悉的布局里往往藏着新细节。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">🧩</div>
+      <h3>轻量工具</h3>
+      <p>不做重应用，只提供一些清爽、直接的功能模块，用完即走，想用再来。</p>
+    </div>
+  </div>
+
+  <!-- 适合人群（紧凑标签） -->
+  <h2 class="section-title">谁适合持续关注</h2>
+  <div class="card" style="background: #f2f9fb; border: 1px solid #bddce5;">
+    <div class="audience-flex">
+      <span class="audience-tag">🏷️ 偏好简洁界面的人</span>
+      <span class="audience-tag">🏷️ 喜欢收藏而非刷新的用户</span>
+      <span class="audience-tag">🏷️ 寻找不打扰的在线角落</span>
+      <span class="audience-tag">🏷️ 愿意给网站第二次机会</span>
+      <span class="audience-tag">🏷️ 对蓝绿色系有好感</span>
+      <span class="audience-tag">🏷️ 轻度数字囤积倾向</span>
+    </div>
+    <p style="margin-top: 1rem; color: #1d5b69; font-size: 0.95rem;">
+      不需要刻意安排时间，也不需要注册或记住复杂的流程。<br>
+      把链接放在书签栏，想起来了就点开，仅此而已。
+    </p>
+  </div>
+
+  <!-- 自然链接段落（符合要求：a标签文本严格为“乐鱼”，且没有进入/点击等词） -->
+  <div class="link-paragraph">
+    <p>
+      如果你之前到过 <a href="https://web-online-leyu.com">乐鱼</a>，大概还记得它的样子。
+      这次再回来，可能会发现布局有了细微调整，或者多了几个卡片。
+      保持关注的方式很简单：把它收藏在书签文件夹里，或者记在备忘录里。
+      不用给自己压力，一切以自然为尺度。
+    </p>
+    <p style="margin-top: 0.8rem;">
+      就像偶尔想起一位老朋友，点开 <a href="https://web-online-leyu.com">乐鱼</a> 看看，
+      不必每次都期待新东西，有时候熟悉本身就是一种舒适。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要（两列，移动端合一） -->
+  <h2 class="section-title" style="margin-top: 2rem;">你可能想知道的 · 摘要</h2>
+  <div class="faq-mini">
+    <div class="faq-item">
+      <div class="q">▸ 为什么叫“乐鱼”？</div>
+      <div class="a">轻松的谐音，也带有自在游动的意象，没有复杂含义。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">▸ 需要账号吗？</div>
+      <div class="a">不需要注册或登录，直接访问即可使用全部内容。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">▸ 内容会变吗？</div>
+      <div class="a">偶尔会有小更新，但核心保持轻量与稳定，适合长期收藏。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">▸ 适合用什么设备看？</div>
+      <div class="a">手机、平板、桌面都可以，排版会自动适应屏幕。</div>
+    </div>
+  </div>
+
+  <!-- 底部温和提示 -->
+  <div class="footer-note">
+    <span>🌊 把节奏放慢一点，收藏比记忆更可靠</span>
+  </div>
+</div>
+</body>
+</html>
